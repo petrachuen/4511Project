@@ -27,3 +27,14 @@ $$\left(\binom{n \times m}{k}\right) ^ {s+6} \times \left( \binom{n \times m}{(n
 
 
 ## Actions
+
+### Pacman Actions
+1. Moves: Right, Left, Up, Down, Stop
+2. Eating: Consume one food's timesteps for a move
+
+### Ghost Actions
+1. Moves: Right, Left, Up, Down, Stop
+2. Eating: Ghost can eat pacman if they are on the same squre
+3. Special move
+   -- ghost can choose to relocate, in one step, to be next to a Pacman.
+   -- If the ghost chooses to use this, it can not use again until at least 2 timestep of Pacman’s food-eating time
