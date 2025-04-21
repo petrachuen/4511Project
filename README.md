@@ -9,4 +9,5 @@ Solving simplified Dead by Daylight that implemented as Pacman in order to find 
 
 ## State
 
-- World State: 
+For an m-by-n map, k food, s time, 4 pacmans, and 1 ghost
+- Pacman position: $n \times m$
