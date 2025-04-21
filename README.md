@@ -23,14 +23,7 @@ For square without the food, it can hold the following states:
 3. A ghost
 
 The state space overall become
-$$
-\left(
-\binom{n \times m}{k}
-\right) ^ {s+6} 
-\times 
-\left( 
-\binom{n \times m}{(n \times m) - k}
-\right) ^ {6} $$
+$$\left(\binom{n \times m}{k}\right) ^ {s+6} \times \left( \binom{n \times m}{(n \times m) - k}\right) ^ {6} $$
 
 
 ## Actions
