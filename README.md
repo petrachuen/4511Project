@@ -38,3 +38,10 @@ $$\left(\binom{n \times m}{k}\right) ^ {s+6} \times \left( \binom{n \times m}{(n
 3. Special move
    - ghost can choose to relocate, in one step, to be next to a Pacman.
    - If the ghost chooses to use this, it can not use again until at least 2 timestep of Pacman’s food-eating time
+
+### Food
+- Each food have a 'timestep' (representing generator in the original game)
+- If Pacman leaves the food before it is completely eaten
+   - The food time adds half of what’s left.
+   - Example: Food needs to be eaten in 10 time steps
+        - If Pacman leaves when 6 time steps are left to complete, then the food now needs 9 time steps to be completed. 
