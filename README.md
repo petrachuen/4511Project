@@ -24,18 +24,12 @@ For square without the food, it can hold the following states:
 
 The state space overall become
 $$
-\left( 
-\begin{smallmatrix}
-    n \times m \\
-    k
-\end{smallmatrix}
+\left(
+\binom{n \times m}{k}
 \right) ^ {s+6} 
 \times 
 \left( 
-\begin{smallmatrix}
-    n \times m \\
-    (n \times m) - k
-\end{smallmatrix}
+\binom{n \times m}{(n \times m) - k}
 \right) ^ {6} $$
 
 
