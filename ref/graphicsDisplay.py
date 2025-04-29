@@ -530,7 +530,8 @@ class PacmanGraphics:
             imageRow = []
             foodImages.append(imageRow)
             for yNum, cell in enumerate(x):
-                if cell: # There's food here
+                #print(cell)
+                if cell == '9': # There's food here
                     screen = self.to_screen((xNum, yNum ))
                     dot = circle( screen,
                                   FOOD_SIZE * self.gridSize,
