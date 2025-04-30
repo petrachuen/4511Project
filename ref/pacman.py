@@ -101,6 +101,8 @@ class GameState:
         # Copy current state
         state = GameState(self)
 
+        #print(state.data.agentStates[4])
+
         # Let agent's logic deal with its action's effects on the board
         if agentIndex == 0:  # Pacman is moving
             state.data._eaten = [False for i in range(state.getNumAgents())]
@@ -122,6 +124,7 @@ class GameState:
         state.data.score += state.data.scoreChange
         GameState.explored.add(self)
         GameState.explored.add(state)
+        #print(state)
         return state
 
     def getLegalPacmanActions( self ):
@@ -343,6 +346,7 @@ class PacmanRules:
             raise Exception("Illegal action " + str(action))
 
         pacmanState = state.data.agentStates[0]
+        #print(state.data.agentStates)
 
         # Update Configuration
         vector = Actions.directionToVector( action, PacmanRules.PACMAN_SPEED )
@@ -388,6 +392,8 @@ class GhostRules:
         Ghosts cannot stop, and cannot turn around unless they
         reach a dead end, but can turn 90 degrees at intersections.
         """
+        #ghostIndex = 4
+        #print(ghostIndex)
         conf = state.getGhostState( ghostIndex ).configuration
         possibleActions = Actions.getPossibleActions( conf, state.data.layout.walls )
         reverse = Actions.reverseDirection( conf.direction )
@@ -399,12 +405,12 @@ class GhostRules:
     getLegalActions = staticmethod( getLegalActions )
 
     def applyAction( state, action, ghostIndex):
-
+        #ghostIndex = 4
         legal = GhostRules.getLegalActions( state, ghostIndex )
         if action not in legal:
             raise Exception("Illegal ghost action " + str(action))
 
-        ghostState = state.data.agentStates[ghostIndex]
+        ghostState = state.data.agentStates[1]#[ghostIndex]
         speed = GhostRules.GHOST_SPEED
         if ghostState.scaredTimer > 0: speed /= 2.0
         vector = Actions.directionToVector( action, speed )
