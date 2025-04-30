@@ -458,7 +458,7 @@ class GameStateData:
         return str(map) + ("\nScore: %d\n" % self.score)
 
     def _foodWallStr( self, hasFood, hasWall ):
-        if hasFood:
+        if hasFood in ['1','2','3','4','5','6','7','8','9']:
             return '.'
         elif hasWall:
             return '%'

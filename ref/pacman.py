@@ -86,7 +86,9 @@ class GameState:
 #        GameState.explored.add(self)
         if self.isWin() or self.isLose(): return []
 
-        if agentIndex == 0:  # Pacman is moving
+        print(agentIndex)
+
+        if (agentIndex != 2): #or (agentIndex == 1):  # Pacman is moving
             return PacmanRules.getLegalActions( self )
         else:
             return GhostRules.getLegalActions( self, agentIndex )
@@ -104,14 +106,14 @@ class GameState:
         #print(state.data.agentStates[4])
 
         # Let agent's logic deal with its action's effects on the board
-        if agentIndex == 0:  # Pacman is moving
+        if (agentIndex != 2): #agentIndex == 0:  # Pacman is moving
             state.data._eaten = [False for i in range(state.getNumAgents())]
             PacmanRules.applyAction( state, action )
         else:                # A ghost is moving
             GhostRules.applyAction( state, action, agentIndex )
 
         # Time passes
-        if agentIndex == 0:
+        if (agentIndex != 2): #agentIndex == 0:
             state.data.scoreChange += -TIME_PENALTY # Penalty for waiting around
         else:
             GhostRules.decrementTimer( state.data.agentStates[agentIndex] )
@@ -146,10 +148,10 @@ class GameState:
         return self.data.agentStates[0].copy()
 
     def getPacmanPosition( self ):
-        return self.data.agentStates[0].getPosition()
+        return self.data.agentStates[0].getPosition()#:len(self.data.agentStates)-2]#.getPosition()
 
     def getGhostStates( self ):
-        return self.data.agentStates[1:]
+        return self.data.agentStates[len(self.data.agentStates)-1]
 
     def getGhostState( self, agentIndex ):
         if agentIndex == 0 or agentIndex >= self.getNumAgents():
@@ -157,7 +159,7 @@ class GameState:
         return self.data.agentStates[agentIndex]
 
     def getGhostPosition( self, agentIndex ):
-        if agentIndex == 0:
+        if agentIndex != 2:
             raise Exception("Pacman's index passed to getGhostPosition")
         return self.data.agentStates[agentIndex].getPosition()
 
@@ -393,7 +395,7 @@ class GhostRules:
         reach a dead end, but can turn 90 degrees at intersections.
         """
         #ghostIndex = 4
-        #print(ghostIndex)
+        print(ghostIndex)
         conf = state.getGhostState( ghostIndex ).configuration
         possibleActions = Actions.getPossibleActions( conf, state.data.layout.walls )
         reverse = Actions.reverseDirection( conf.direction )
@@ -406,6 +408,7 @@ class GhostRules:
 
     def applyAction( state, action, ghostIndex):
         #ghostIndex = 4
+        print(ghostIndex)
         legal = GhostRules.getLegalActions( state, ghostIndex )
         if action not in legal:
             raise Exception("Illegal ghost action " + str(action))
@@ -426,7 +429,7 @@ class GhostRules:
 
     def checkDeath( state, agentIndex):
         pacmanPosition = state.getPacmanPosition()
-        if agentIndex == 0: # Pacman just moved; Anyone can kill him
+        if (agentIndex != 2): #agentIndex == 0: # Pacman just moved; Anyone can kill him
             for index in range( 1, len( state.data.agentStates ) ):
                 ghostState = state.data.agentStates[index]
                 ghostPosition = ghostState.configuration.getPosition()
