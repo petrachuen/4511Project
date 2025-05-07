@@ -1,5 +1,41 @@
-# 4511 Project
 # Dead by Daylight Pacman Project
+
+## Motivation for this project
+
+Dead by Daylight is an online multiplayer survival horror game. Typically, there are four survivors and one killer which survivors have to fix all generator to escape and win (even if only one survivor survived) while the killer have to kill all of the survivor to win. For more detailed information [Dead by Daylight Official Website](https://deadbydaylight.com/). 
+
+This project therefore aimed to find the optimal solution for survivor to be able to win the game. However, this is the simplified version of the game using Pacman as a representation. 
+
+The game representation are as follows
+- Pacman represented Killer
+- Four ghosts represented survivors
+- Food represented generator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Purpose
 
