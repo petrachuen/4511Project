@@ -106,6 +106,7 @@ class QLearningAgent(ReinforcementAgent):
             return random.choice(legalActions)
         else:
             return self.computeActionFromQValues(state)
+            
 
     def update(self, state, action, nextState, reward: float):
         """
@@ -118,7 +119,7 @@ class QLearningAgent(ReinforcementAgent):
         "*** YOUR CODE HERE ***"
         sample = reward + (self.discount * self.computeValueFromQValues(nextState)) - self.getQValue(state,action)
         key = state,action
-        self.qvalue[key] = self.getQValue(state,action) + self.alpha * sample
+        self.qvalue[key] = self.getQValue(state,action) + (self.alpha * sample)
 
     def getPolicy(self, state):
         return self.computeActionFromQValues(state)
