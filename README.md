@@ -90,7 +90,9 @@ Please note that the amount of training round in this experiment was determined 
 
 ## Result
 
+![Result](result1.png)
 
+We can see here that using random agent to run give the similar winning rate to training through Q-learning when in mediumClassic Layout. Also, even when looking only among the experiment that run using Q-learning, we still can not see any corrolation between winning rate and training amount. 
 
 
 
